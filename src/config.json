@@ -1,0 +1,34 @@
+{
+  "tap": {
+    "a": {"device":"keyboard", "type":"cycle", "mod":["",""], "key":["b","e"], "release":true, "cycle":0 },
+    "left": {"device":"keyboard", "type":"standard", "mod":"", "key":"v", "release":true},
+    "right": {"device":"keyboard", "type":"standard", "mod":"", "key":"l", "release":true},
+    "down": {"device":"keyboard", "type":"standard", "mod":"control", "key":"backspace", "release":true},
+    "plus": {"device":"keyboard", "type":"standard", "mod":"control", "key":"equal", "release":true},
+    "minus": {"device":"keyboard", "type":"standard", "mod":"control", "key":"minus", "release":true}
+  },
+  "hold": {
+    "a": { "device":"keyboard", "type":"standard", "mod":"", "key":"i", "release":false },
+    "home": {"device":"keyboard", "type":"standard", "mod":"", "key":"h", "release":false},
+    "right": {"device":"keyboard", "type":"standard", "mod":"control", "key":"d", "release":true},
+    "minus": { "device":"keyboard", "type":"standard", "mod":"control", "key":"0", "release":true },
+    "plus": { "device":"keyboard", "type":"standard", "mod":"", "key":"r", "release":false },
+    "1": {"device":"keyboard", "type":"standard", "mod":"control", "key":"", "release":false},
+    "2": {"device":"keyboard", "type":"standard", "mod":"shift", "key":"", "release":false}
+  },
+  "hold+tap": {
+    "b,left": { "device":"keyboard", "type":"standard", "mod":"control", "key":"z", "release":true },
+    "b,right": { "device":"keyboard", "type":"standard", "mod":"control+shift", "key":"z", "release":true },
+    "b,up": {"device":"keyboard", "type":"standard", "mod":"control+shift", "key":"n", "release":true},
+    "b,down": {"device":"keyboard", "type":"standard", "mod":"", "key":"backspace", "release":true},
+    "b,minus": { "device":"keyboard", "type":"standard", "mod":"", "key":"leftbracket", "release":true },
+    "b,plus": { "device":"keyboard", "type":"standard", "mod":"", "key":"rightbracket", "release":true }
+  },
+  "tilt":{},
+  "_tilt": {
+    "left": {"device":"mouse", "type":"position_relative", "x":-20, "y":0},
+    "right": {"device":"mouse", "type":"position_relative", "x":20, "y":0},
+    "up": {"device":"mouse", "type":"position_relative", "x":0, "y":-20},
+    "down": {"device":"mouse", "type":"position_relative", "x":0, "y":20}
+  }
+}
