@@ -43,9 +43,6 @@ class Wiiid:
     def run(self):
         while True:
             btnState = self.wii.state["buttons"]
-            accState = self.wii.state["acc"]
-            state = self.tilt.state(accState)
-            self.act(*state)
             for btn in self.buttons:
                 button = self.buttons[btn]
                 state = button.state(btnState)
