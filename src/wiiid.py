@@ -48,7 +48,7 @@ class Wiiid:
                 state = button.state(btnState)
                 if state != None:
                     self.act(*state)
-            time.sleep(0.01)
+            time.sleep(0)
 
 
     def act(self, action, args):
