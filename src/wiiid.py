@@ -36,7 +36,7 @@ class Wiiid:
             "2": Button(self, cwiid.BTN_2, "2")
         }
         self.tilt = Tilt()
-        with open(f"{DIR}/config.json") as f:
+        with open(f"/boot/Wiiid/config.json") as f:
             self.config = json.load(f)
 
 
