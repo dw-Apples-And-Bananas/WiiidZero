@@ -10,7 +10,7 @@ def get_var(text, var):
 
 
 def connect():
-    with open("/boot/Wiiid/wifi", "r") as f:
+    with open("/boot/Wiiid/wifi.txt", "r") as f:
         wifi = f.read()
 
     ssid = get_var(wifi, "ssid")
