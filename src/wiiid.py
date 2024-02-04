@@ -8,11 +8,18 @@ from button import Button
 from tilt import Tilt
 
 from strhid import hid
+import util.wifi as wifi
 
 keyboard = Keyboard()
 mouse = Mouse()
 
 DIR = os.path.dirname(os.path.abspath(__file__))
+
+
+try:
+    wifi.connect()
+except:
+    print("Could not connect to wifi.")
 
 
 
