@@ -79,6 +79,7 @@ class Wiiid:
                         if shortcut["function"] == "reset":
                             with open(f"/boot/Wiiid/config.json") as f:
                                 self.config = json.load(f)
+                            self.rumble()
             except Exception as e:
                 pass
                 # self.mainScene.log(e)
