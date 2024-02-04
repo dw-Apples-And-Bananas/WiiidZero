@@ -8,7 +8,6 @@ from button import Button
 from tilt import Tilt
 
 from strhid import hid
-import util.wifi as wifi
 
 keyboard = Keyboard()
 mouse = Mouse()
@@ -16,18 +15,12 @@ mouse = Mouse()
 DIR = os.path.dirname(os.path.abspath(__file__))
 
 
-try:
-    wifi.connect()
-    print("Connected to wifi.")
-except:
-    print("Could not connect to wifi.")
-
-
 
 class Wiiid:
     def __init__(self) -> None:
         if not self.connect():
             sys.exit()
+        print("connected")
         self.rumble()
         self.wii.rpt_mode = cwiid.RPT_BTN | cwiid.RPT_ACC
         self.buttons = {
