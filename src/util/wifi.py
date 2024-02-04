@@ -21,5 +21,3 @@ def connect():
     for connection in connections:
         os.system(f"sudo raspi-config nonint do_wifi_ssid_passphrase {connection[0]} {connection[1]}")
 
-
-connect()

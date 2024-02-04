@@ -18,6 +18,7 @@ DIR = os.path.dirname(os.path.abspath(__file__))
 
 try:
     wifi.connect()
+    print("Connected to wifi.")
 except:
     print("Could not connect to wifi.")
 
