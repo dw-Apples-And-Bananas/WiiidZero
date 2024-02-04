@@ -33,4 +33,4 @@ def edit():
 @bp.before_app_request
 def load():
     with open("/boot/Wiiid/config.json", "r") as f:
-        g.config = json.dumps(json.load(f))
+        g.config = f.read()
