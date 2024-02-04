@@ -23,7 +23,7 @@ def edit():
 
         if error is None:
             with open("/boot/Wiiid/config.json", "w") as f:
-                json.dump(json.loads(config), f, indent=2)
+                f.write(config)
         
         # flash(error)
 
@@ -33,4 +33,4 @@ def edit():
 @bp.before_app_request
 def load():
     with open("/boot/Wiiid/config.json", "r") as f:
-        g.config = json.dumps(json.load(f), indent=2)
+        g.config = json.dumps(json.load(f))
