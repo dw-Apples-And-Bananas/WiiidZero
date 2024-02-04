@@ -1,23 +1,29 @@
 import os
 
+def get_var(text, var):
+    start = text.find(f"{var}=")+len(f"{var}=")
+    end = text[start::].find("\n")
+    if end == -1:
+        return text[start::]
+    else:
+        return text[start:end+start]
+
+
 def connect():
     with open("/boot/Wiiid/wifi", "r") as f:
         wifi = f.read()
-    lines = wifi.splitlines()
-    while "" in lines:
-        lines.remove("")
-    connections = []
-    s,p = 0,1
-    for i in range(len(lines)-2):
-        connections.append([
-            lines[s].replace("ssid=",""),
-            lines[p].replace("pass=","")
-        ])
-        s+=2
-        p+=2
-    print(connections)
 
+    ssid = get_var(wifi, "ssid")
+    password = get_var(wifi, "pass")
+    country = get_var(wifi, "country")
 
-    for connection in connections:
-        os.system(f"sudo raspi-config nonint do_wifi_ssid_passphrase {connection[0]} {connection[1]}")
+    with open("/boot/wpa_supplicant.conf", "w") as f:
+        f.write("""ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country="""+country+"""
 
+network={
+    ssid=\""""+ssid+"""\"
+    psk=\""""+password+"""\"
+    key_mgmt=WPA-PSK
+}""")
