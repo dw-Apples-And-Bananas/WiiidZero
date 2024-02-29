@@ -1,6 +1,6 @@
 import os
-from flask import Flask
-from . import config
+from flask import Flask, url_for
+from . import driver
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -10,7 +10,7 @@ def create_app(test_config=None):
     )
 
     if test_config is None:
-        app.config.from_pyfile("config.py", silent=True)
+        app.config.from_pyfile("driver.py", silent=True)
     else:
         app.config.from_mapping(test_config)
 
@@ -19,10 +19,12 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    @app.route("/hello")
-    def hello():
-        return "Hello, World!"
 
-    app.register_blueprint(config.bp)
+    @app.route("/")
+    def reroute():
+        app.redirect(url_for("driver.render"))
+        return driver.render()
+
+    app.register_blueprint(driver.bp)
 
     return app

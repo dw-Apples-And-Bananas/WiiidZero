@@ -6,6 +6,7 @@ import json
 import os
 from button import Button
 from tilt import Tilt
+import actions
 
 from strhid import hid
 
@@ -53,36 +54,9 @@ class Wiiid:
 
 
     def act(self, action, args):
-        if action == "release":
-            keyboard.release()
-        if action != "":
-            arg = ",".join(args)
-            try:
-                shortcut = self.config[action][arg]
-                if shortcut["device"] == "keyboard":
-                    if shortcut["type"] == "standard":
-                        keyboard.press([hid[shortcut["mod"]]], hid[shortcut["key"]], shortcut["release"])
-                    elif shortcut["type"] == "cycle":
-                        cycle = shortcut["cycle"]
-                        key = shortcut["key"][cycle]
-                        mod = shortcut["mod"][cycle]
-                        shortcut["cycle"] = cycle+1 if cycle < len(shortcut["key"])-1 else 0
-                        keyboard.press([hid[mod]], hid[key], shortcut["release"])
-                elif shortcut["device"] == "mouse":
-                    if shortcut["type"] == "click":
-                        if shortcut["button"] == "left": mouse.left_click()
-                        elif shortcut["button"] == "right": mouse.right_click()
-                    if shortcut["type"] == "position_relative":
-                        mouse.move_relative(shortcut["x"], shortcut["y"])
-                elif shortcut["device"] == None:
-                    if shortcut["type"] == "function":
-                        if shortcut["function"] == "reset":
-                            with open(f"/boot/Wiiid/config.json") as f:
-                                self.config = json.load(f)
-                            self.rumble()
-            except Exception as e:
-                pass
-                # self.mainScene.log(e)
+        config = self.config[action][args]
+        actions.run[config["device"]][config["action"]](*config["args"])
+        
 
 
     def rumble(self, seconds:float=0.3):

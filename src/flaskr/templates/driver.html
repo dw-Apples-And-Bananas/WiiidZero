@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+    <div class="header">
+      <div class="title">
+        <h2>Wii Interface Device</h2>
+        <h3>WiiiD v1.0.0</h3>
+      </div>
+      <h2 class="ip">{{ ip }}</h2>
+    </div>
+    <div class="config-div">
+      <div class="config-list">
+        {% for config in configs %}
+          <div class="config-button">
+            <div class="config-name">{{config[0]}}</div>
+            <div class="config-action"><p>{{config[1]}}</p></div>
+            <button class="config-clear">x</button>
+          </div>
+       {% endfor %}
+      </div>
+    </div>
+</body>
+{% endblock %}

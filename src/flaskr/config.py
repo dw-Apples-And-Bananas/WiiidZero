@@ -22,8 +22,9 @@ def edit():
             error = "Config should not beauth empty."
 
         if error is None:
-            with open("/boot/Wiiid/config.json", "w") as f:
-                f.write(config)
+            print("save")
+            # with open("/boot/Wiiid/config.json", "w") as f:
+            #     f.write(config)
         
         # flash(error)
 
@@ -32,5 +33,6 @@ def edit():
 
 @bp.before_app_request
 def load():
-    with open("/boot/Wiiid/config.json", "r") as f:
-        g.config = f.read()
+    print("load")
+    # with open("/boot/Wiiid/config.json", "r") as f:
+    #     g.config = f.read()
