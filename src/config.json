@@ -3,7 +3,7 @@
     "a": {
       "device": "wiiid",
       "action": "macro",
-      "args": [
+      "args": [[
         {
           "device": "keyboard",
           "action": "tap",
@@ -24,7 +24,7 @@
           "action": "type",
           "args": ["cde", 0.1]
         }
-      ]
+      ]]
     },
     "right": {
       "device": "keyboard",
