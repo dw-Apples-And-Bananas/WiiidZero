@@ -26,7 +26,7 @@ class Wiiid:
         self.wii.rpt_mode = cwiid.RPT_BTN | cwiid.RPT_ACC
         self.buttons = {
             "a": Button(self, cwiid.BTN_A, "a"),
-            "b": Button(self, cwiid.BTN_B, ""),
+            "b": Button(self, cwiid.BTN_B, "b"),
             "up": Button(self, cwiid.BTN_UP, "up"),
             "down": Button(self, cwiid.BTN_DOWN, "down"),
             "left": Button(self, cwiid.BTN_LEFT, "left"),
@@ -54,7 +54,7 @@ class Wiiid:
 
 
     def act(self, action, args):
-        print(action, args)
+        print("action:",action, args)
         return
         config = self.config[action][args]
         actions.run[config["device"]][config["action"]](*config["args"])
