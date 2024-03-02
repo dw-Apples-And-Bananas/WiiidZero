@@ -1,9 +1,5 @@
 import time
 
-class Tilt:
-    x: int
-    z: int
-
 class Button:
     def __init__(self, wiiid, ID:int, name:str, value:int=0, holdtime:float=-1):
         self.wiiid = wiiid
@@ -12,7 +8,6 @@ class Button:
         self.value = value
         self.holdtime = holdtime
         self.holding = False
-        self.tilt = Tilt
 
     def state(self, btnState):
         if (btnState & self.ID):
