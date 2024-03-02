@@ -25,8 +25,7 @@ class Button:
         return None
 
     def btap(self):
-        print(self.name)
-        if self.name != "b" and self.wiiid.buttons["b"].value == 1:
+        if self.wiiid.buttons["b"].value == 1:
             return True
         return False
 
@@ -51,9 +50,10 @@ class Button:
             return ["release", [self.name]]
 
     def held(self):
-        self.holdtime = -1
-        self.holding = True
-        return ["hold", [self.name]]
+        if self.name != "b":
+            self.holdtime = -1
+            self.holding = True
+            return ["hold", [self.name]]
     
     def tilting(self, acc):
         z = acc[0]
