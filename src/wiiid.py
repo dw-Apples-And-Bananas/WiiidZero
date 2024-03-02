@@ -50,15 +50,14 @@ class Wiiid:
                 button = self.buttons[btn]
                 state = button.state(btnState)
                 if state != None:
-                    self.act(*state)
+                    self.act(button, *state)
             time.sleep(0)
 
 
-    def act(self, action, args):
+    def act(self, btn, action, args):
         config = self.config[action][args]
-        actions.run[config["device"]][config["action"]](*config["args"])
+        actions.run[config["device"]][config["action"]](btn, *config["args"])
         
-
 
     def rumble(self, seconds:float=0.3):
         self.wii.rumble = 1

@@ -8,6 +8,7 @@ class Button:
         self.value = value
         self.holdtime = holdtime
         self.holding = False
+        self.cycle = 0
 
     def state(self, btnState):
         if (btnState & self.ID):
