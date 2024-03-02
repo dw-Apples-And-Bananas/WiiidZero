@@ -1,9 +1,0 @@
-{
-  "tap": {
-    "a": {
-      "device": "keyboard",
-      "action": "cycle",
-      "args": [[[], "b"], [[], "e"]]
-    }
-  }
-}

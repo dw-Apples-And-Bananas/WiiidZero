@@ -1,0 +1,24 @@
+{
+  "tap": {
+    "a": {"device":"keyboard", "type":"cycle", "mod":["",""], "key":["b","e"], "release":true, "cycle":0 },
+    "left": {"device":"keyboard", "type":"standard", "mod":"gui", "key":"left", "release":true},
+    "right": {"device":"keyboard", "type":"standard", "mod":"gui", "key":"right", "release":true},
+    "1": {"device":"keyboard", "type":"standard", "mod":"", "key":"l", "release":true},
+    "2": {"device":"keyboard", "type":"standard", "mod":"gui", "key":"t", "release":true}
+  },
+  "hold": {
+    "1": {"device":"keyboard", "type":"standard", "mod":"gui", "key":"d", "release":true},
+    "2": {"device":"keyboard", "type":"standard", "mod":"", "key":"enter", "release":true}
+  },
+  "hold+tap": {
+    "b,left": { "device":"keyboard", "type":"standard", "mod":"gui", "key":"z", "release":true },
+    "b,right": { "device":"keyboard", "type":"standard", "mod":"gui+shift", "key":"z", "release":true }
+  },
+  "tilt":{},
+  "_tilt": {
+    "left": {"device":"mouse", "type":"position_relative", "x":-20, "y":0},
+    "right": {"device":"mouse", "type":"position_relative", "x":20, "y":0},
+    "up": {"device":"mouse", "type":"position_relative", "x":0, "y":-20},
+    "down": {"device":"mouse", "type":"position_relative", "x":0, "y":20}
+  }
+}

@@ -1,5 +1,5 @@
 class KeyboardDevice():
-    def press(self, mods:list, key:str):
+    def tap(self, mods:list, key:str):
         print(mods, key)
 
     def hold(self, mods:list, key:str, duration:float):
@@ -30,7 +30,7 @@ class MouseDevice():
 
 run = {
     "keyboard": {
-        "press": KeyboardDevice.press,
+        "tap": KeyboardDevice.tap,
         "hold": KeyboardDevice.hold,
         "cycle": KeyboardDevice.cycle,
         "type": KeyboardDevice.type

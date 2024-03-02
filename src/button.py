@@ -38,7 +38,7 @@ class Button:
                 return ["tap", self.name]
         else:
             self.holding = False
-            return ["release", [self.name]]
+            # return ["release", [self.name]]
 
     def held(self):
         if self.name != "b":
