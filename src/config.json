@@ -12,7 +12,7 @@
       "device": "keyboard",
       "action": "tap",
       "args": [[], "r"]
-    
+    },
     "left": {
       "device": "keyboard",
       "action": "cycle",
