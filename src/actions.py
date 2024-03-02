@@ -8,7 +8,7 @@ class KeyboardDevice():
     def cycle(self, keys:list):
         print(keys)
     
-    def type(self, text, delay):
+    def type(self, text:str, delay:float):
         print(text, delay)
 
 

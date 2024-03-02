@@ -3,27 +3,36 @@
     "a": {
       "device": "keyboard",
       "action": "cycle",
-      "args": [[[], "b"], [[], "e"]]
+      "args": [[
+        [[],"b"],
+        [[],"e"]
+      ]]
     },
     "right": {
       "device": "keyboard",
       "action": "tap",
       "args": [[], "r"]
-    },
+    
     "left": {
       "device": "keyboard",
       "action": "cycle",
-      "args": [[], ["c", "y", "c", "l", "e"]]
+      "args": [[
+        [[],"c"],
+        [[],"y"],
+        [[],"c"],
+        [[],"l"],
+        [[],"e"]
+      ]]
     },
     "up": {
       "device": "keyboard",
       "action": "hold",
-      "args": [[], "u"]
+      "args": [[], "u", 1]
     },
     "down": {
       "device": "keyboard",
       "action": "type",
-      "args": ["down"]
+      "args": ["down", 0.5]
     }
   }
 }
