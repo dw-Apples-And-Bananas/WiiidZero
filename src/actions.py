@@ -20,10 +20,9 @@ class KeyboardDevice():
     def cycle(self, btn, keys:list):
         mods, key = keys[btn.cycle]
         k.press(mods, hid[key], release=True)
+        btn.cycle += 1
         if btn.cycle == len(keys):
             btn.cycle = 0
-        else:
-            btn.cycle += 1
     
     def type(self, btn, text:str, delay:float):
         k.type(text, delay)
