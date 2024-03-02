@@ -1,4 +1,7 @@
 class KeyboardDevice():
+    def __init__(self) -> None:
+        pass
+
     def tap(self, mods:list, key:str):
         print(mods, key)
 
@@ -13,6 +16,9 @@ class KeyboardDevice():
 
 
 class MouseDevice():
+    def __init__(self) -> None:
+        pass
+
     def click(self, button:str, double:bool):
         print(button, double)
 
@@ -28,18 +34,21 @@ class MouseDevice():
     def scroll(self, direction:str, amount:int, speed:int):
         print(direction, amount, speed)
 
+
+kd = KeyboardDevice()
+md = MouseDevice()
 run = {
     "keyboard": {
-        "tap": KeyboardDevice.tap,
-        "hold": KeyboardDevice.hold,
-        "cycle": KeyboardDevice.cycle,
-        "type": KeyboardDevice.type
+        "tap": kd.tap,
+        "hold": kd.hold,
+        "cycle": kd.cycle,
+        "type": kd.type
     },
     "mouse": {
-        "click": MouseDevice.click,
-        "hold": MouseDevice.hold,
-        "move": MouseDevice.move,
-        "drag": MouseDevice.drag,
-        "scroll": MouseDevice.scroll
+        "click": md.click,
+        "hold": md.hold,
+        "move": md.move,
+        "drag": md.drag,
+        "scroll": md.scroll
     }
 }
