@@ -22,7 +22,7 @@
         {
           "device": "keyboard",
           "action": "type",
-          "args": ["cde", .1]
+          "args": ["cde", 0.1]
         }
       ]
     },
