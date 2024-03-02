@@ -56,8 +56,7 @@ class Wiiid:
 
     def act(self, action, args):
         config = self.config[action][args]
-        print(config)
-        # actions.run[config["device"]][config["action"]](*config["args"])
+        actions.run[config["device"]][config["action"]](*config["args"])
         
 
 
