@@ -2,7 +2,7 @@ class KeyboardDevice():
     def press(self, mods:list, key:str):
         print(mods, key)
 
-    def hold(self, mods:list, key:str, duration:float|int):
+    def hold(self, mods:list, key:str, duration:float):
         print(mods, key, duration)
 
     def cycle(self, keys:list):
