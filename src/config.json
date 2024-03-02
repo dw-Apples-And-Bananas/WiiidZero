@@ -1,12 +1,30 @@
 {
   "tap": {
     "a": {
-      "device": "keyboard",
-      "action": "cycle",
-      "args": [[
-        [[],"b"],
-        [[],"e"]
-      ]]
+      "device": "wiiid",
+      "action": "macro",
+      "args": [
+        {
+          "device": "keyboard",
+          "action": "tap",
+          "args": [[], "a"]
+        },
+        {
+          "device": "wiiid",
+          "action": "delay",
+          "args": [1]
+        },
+        {
+          "device": "keyboard",
+          "action": "hold",
+          "args": [[], "b", 2]
+        },
+        {
+          "device": "keyboard",
+          "action": "type",
+          "args": ["cde", .1]
+        }
+      ]
     },
     "right": {
       "device": "keyboard",

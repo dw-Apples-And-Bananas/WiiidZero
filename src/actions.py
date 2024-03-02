@@ -48,8 +48,22 @@ class MouseDevice():
         print(direction, amount, speed)
 
 
+class WiiidDevice():
+    def __init__(self) -> None:
+        pass
+    
+    def delay(self, btn, duration:float):
+        time.sleep(1)
+
+    def macro(self, btn, actions:list):
+        for m in actions:
+            run[m["device"]][m["action"]](btn,*m["args"])
+
+
+
 kd = KeyboardDevice()
 md = MouseDevice()
+wd = WiiidDevice()
 run = {
     "keyboard": {
         "tap": kd.tap,
@@ -63,5 +77,9 @@ run = {
         "move": md.move,
         "drag": md.drag,
         "scroll": md.scroll
+    },
+    "wiiid": {
+        "delay": wd.delay,
+        "macro": wd.macro
     }
 }
