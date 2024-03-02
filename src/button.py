@@ -30,17 +30,13 @@ class Button:
         return False
 
     def pressed(self):
-        if self.name == "home":
-            accState = self.wiiid.wii.state["acc"]
-            self.tilt.z = accState[0]
-            self.tilt.x = accState[1]
         self.value = 1
         self.holdtime = time.time()
 
     def released(self):
         self.value = 0
         self.holdtime = -1
-        if not self.holding:
+        if not self.holding and self.name != "b":
             if self.btap():
                 return ["btap", self.name]
             else:
@@ -54,10 +50,3 @@ class Button:
             self.holdtime = -1
             self.holding = True
             return ["hold", [self.name]]
-    
-    def tilting(self, acc):
-        z = acc[0]
-        if z < self.tilt.z-5:
-            return ["tilt", ["-z"]]
-        elif z > self.tilt.z+5:
-            return ["tilt", ["+z"]]
