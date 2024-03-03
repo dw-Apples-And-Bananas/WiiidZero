@@ -7,7 +7,7 @@ import os
 from button import Button
 from tilt import Tilt
 import actions
-from flaskr.driver import update_data
+from driver.application import update_data
 
 from strhid import hid
 
