@@ -1,1 +1,1 @@
-flask --app flaskr run --debug & python3 wiiid.py
+sudo python3 driver/application.py & python3 wiiid.py
