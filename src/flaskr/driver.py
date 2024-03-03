@@ -12,6 +12,8 @@ from flask import (
 
 bp = Blueprint("driver", __name__, url_prefix="/driver")
 
+data = []
+
 @bp.route("/", methods=("GET","POST"))
 def render():
     return render_template("driver.html",
@@ -23,7 +25,12 @@ def render():
                                ["Left ", "CMD+Z"],
                                ["Left ", "CMD+Z"],
                                ["Left ", "CMD+Z"],
-                               ])
+                               ],
+                           data=data)
+
+def update_data(new_data):
+    global data
+    data = new_data
 
 @bp.before_app_request
 def load():

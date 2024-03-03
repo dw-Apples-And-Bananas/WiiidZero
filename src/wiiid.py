@@ -7,6 +7,7 @@ import os
 from button import Button
 from tilt import Tilt
 import actions
+from flaskr.driver import update_data
 
 from strhid import hid
 
@@ -50,6 +51,7 @@ class Wiiid:
                 button = self.buttons[btn]
                 state = button.state(btnState)
                 if state != None:
+                    update_data([button.name])
                     self.act(button, *state)
             time.sleep(0)
 
