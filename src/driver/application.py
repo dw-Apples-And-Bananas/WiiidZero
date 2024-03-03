@@ -7,4 +7,4 @@ def hello():
     return "Hello, World!"
 
 if __name__ == '__main__':
-    app.run(host='wiiid.local', port=80)
+    app.run(debug=True, host='wiiid.local', port=80)
