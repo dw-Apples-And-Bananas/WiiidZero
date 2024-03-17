@@ -7,5 +7,6 @@ class Data:
         self.button = ""
 
     def update(self):
-        self.file.write(f"{self.button}\n")
+        with open("data.txt", "w") as f:
+            f.write(f"{self.button}\n")
         self.default()
