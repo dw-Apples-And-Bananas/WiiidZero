@@ -7,6 +7,7 @@ import os
 from button import Button
 from tilt import Tilt
 import actions
+from data import Data
 
 from strhid import hid
 
@@ -38,7 +39,7 @@ class Wiiid:
             "2": Button(self, cwiid.BTN_2, "2")
         }
         self.tilt = Tilt()
-        self.data = ["button", "battery"]
+        self.data = Data()
         # with open(f"/boot/Wiiid/config.json") as f:
         with open(f"config.json") as f:
             self.config = json.load(f)
@@ -50,14 +51,12 @@ class Wiiid:
             for btn in self.buttons:
                 button = self.buttons[btn]
                 if button.value == 1:
-                    self.data[0] = button.name
+                    self.data.button = button.name
                 state = button.state(btnState)
                 if state != None:
                     self.act(button, *state)
             time.sleep(0)
-            self.data[1] = str(self.wii.state["battery"])
-            with open("data.txt", "w") as f:
-                f.write("\n".join(self.data))
+            self.data.update()
 
 
     def act(self, btn, action, args):
