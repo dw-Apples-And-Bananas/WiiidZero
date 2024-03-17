@@ -58,8 +58,11 @@ class Wiiid:
 
 
     def act(self, btn, action, args):
-        config = self.config[action][args]
-        actions.run[config["device"]][config["action"]](btn, *config["args"])
+        try:
+            config = self.config[action][args]
+            actions.run[config["device"]][config["action"]](btn, *config["args"])
+        except KeyError as e:
+            print(e)
         
 
     def rumble(self, seconds:float=0.3):

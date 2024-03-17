@@ -15,7 +15,8 @@ def index():
 def inject_data():
     with open("data.txt", "r") as f:
         line = f.readlines()
-        return {"data": line[0], "data2": line[1]}
+        if len(line) > 0:
+            return {"data": line[0], "data2": line[1]}
 
 def update_data():
     with app.app_context():
