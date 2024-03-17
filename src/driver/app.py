@@ -17,6 +17,7 @@ def inject_data():
         line = f.readlines()
         if len(line) > 0:
             return {"data": line[0], "data2": line[1]}
+        return {"data": "", "data2":""}
 
 def update_data():
     with app.app_context():
