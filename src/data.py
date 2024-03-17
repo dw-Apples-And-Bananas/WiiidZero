@@ -4,7 +4,7 @@ class Data:
         self.default()
     
     def default(self):
-        self.button = ""
+        self.button = "null"
 
     def update(self):
         with open("data.txt", "w") as f:
