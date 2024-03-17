@@ -55,7 +55,7 @@ class Wiiid:
                 if state != None:
                     self.act(button, *state)
             time.sleep(0)
-            self.data[1] = self.wii.state["battery"]
+            self.data[1] = str(self.wii.state["battery"])
             with open("data.txt", "w") as f:
                 f.write("\n".join(self.data))
 
