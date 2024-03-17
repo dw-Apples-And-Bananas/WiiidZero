@@ -38,6 +38,7 @@ class Wiiid:
             "2": Button(self, cwiid.BTN_2, "2")
         }
         self.tilt = Tilt()
+        self.data = ["button", "battery"]
         # with open(f"/boot/Wiiid/config.json") as f:
         with open(f"config.json") as f:
             self.config = json.load(f)
@@ -48,13 +49,15 @@ class Wiiid:
             btnState = self.wii.state["buttons"]
             for btn in self.buttons:
                 button = self.buttons[btn]
+                if button.value == 1:
+                    self.data[0] = button.name
                 state = button.state(btnState)
                 if state != None:
-                    print(f"{button.name}\n{self.wii.state['battery']}")
-                    with open("data.txt", "w") as f:
-                        f.write(f"{button.name}\n{self.wii.state['battery']}")
                     self.act(button, *state)
             time.sleep(0)
+            self.data[1] = self.wii.state["battery"]
+            with open("data.txt", "w") as f:
+                f.write("\n".join(self.data))
 
 
     def act(self, btn, action, args):
