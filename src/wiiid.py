@@ -50,6 +50,8 @@ class Wiiid:
                 button = self.buttons[btn]
                 state = button.state(btnState)
                 if state != None:
+                    with open("data.txt", "w") as f:
+                        f.write(f"{button.name}\n{self.wii.state['batter']}")
                     self.act(button, *state)
             time.sleep(0)
 

@@ -13,7 +13,7 @@ def index():
 
 @app.context_processor
 def inject_data():
-    with open("../data.txt", "r") as f:
+    with open("data.txt", "r") as f:
         line = f.readlines()
         return {"data": line[0], "data2": line[1]}
 
